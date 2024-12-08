@@ -1,5 +1,5 @@
 
-![Chef-Claude-App Screenshot](images/chef-claude-screenshot-1.png)
+![Chef-Claude-App Screenshot](screenshots/chef-claude-screenshot-1.png)
 
 
 Chef-Claude-App is an intuitive recipe suggestion tool powered by AI. Users can provide a list of ingredients they have on hand, and the app will generate creative and detailed recipes based on those ingredients. The app leverages advanced AI models to deliver tailored cooking recommendations formatted in markdown for easy readability.
