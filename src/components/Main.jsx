@@ -2,12 +2,14 @@ import React from "react";
 import IngredientsList from "./IngredientsList";
 import ClaudeRecipe from "./ClaudeRecipe";
 import { getRecipeFromMistral } from "../ai";
+import Loader from "./Loader";
 
 export default function Main() {
   const [ingredients, setIngredients] = React.useState([]);
   const [recipe, setRecipe] = React.useState("");
-
+  const [waiting, setWaiting] = React.useState(false);
   async function getRecipe() {
+    setWaiting(true);
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
     setRecipe(recipeMarkdown);
   }
@@ -36,7 +38,7 @@ export default function Main() {
         <IngredientsList ingredients={ingredients} getRecipe={getRecipe} />
       )}
 
-      {recipe && <ClaudeRecipe recipe={recipe} />}
+      {recipe ? <ClaudeRecipe recipe={recipe} /> : waiting ? <Loader /> : null}
     </main>
   );
 }
