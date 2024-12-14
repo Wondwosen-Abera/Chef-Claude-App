@@ -48,7 +48,7 @@ main {
   max-width: 400px;
 }
 
-.add-ingredient-form > button {
+.add-ingredient {
   font-family: Inter, sans-serif;
   border-radius: 6px;
   border: none;
@@ -59,9 +59,20 @@ main {
   font-weight: 500;
 }
 
-.add-ingredient-form > button::before {
+.add-ingredient::before {
   content: "+";
   margin-right: 5px;
+}
+
+.new-ingredients {
+  width: 80px;
+  font-family: Inter, sans-serif;
+  border-radius: 6px;
+  border: none;
+  background-color: #141413;
+  color: #fafaf8;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 ul.ingredients-list {

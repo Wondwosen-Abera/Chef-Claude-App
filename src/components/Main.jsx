@@ -26,31 +26,51 @@ export default function Main() {
     event.preventDefault(); // Prevent the default form submission behavior
     const formData = new FormData(event.target);
     const newIngredient = formData.get("ingredient");
-    setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
-    event.target.reset(); // Clear the input field after submission
+    if (newIngredient) {
+      setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+      event.target.reset(); // Clear the input field after submission
+    }
+  }
+
+  function clearIngredients(event) {
+    event.preventDefault(); // Prevent default button behavior
+    setIngredients([]);
+    setRecipe("");
+    setWaiting(false);
   }
 
   return (
-    <main>
-      <form onSubmit={addIngredient} className="add-ingredient-form">
-        <input
-          type="text"
-          placeholder="e.g. oregano"
-          aria-label="Add ingredient"
-          name="ingredient"
-        />
-        <button type="submit">Add ingredient</button>
-      </form>
+    <>
+      <main>
+        <form onSubmit={addIngredient} className="add-ingredient-form">
+          <input
+            type="text"
+            placeholder="e.g. oregano"
+            aria-label="Add ingredient"
+            name="ingredient"
+          />
+          <button className="add-ingredient" type="submit">
+            Add ingredient
+          </button>
+          <button className="new-ingredients" onClick={clearIngredients}>
+            New
+          </button>
+        </form>
 
-      {ingredients.length > 0 && (
-        <IngredientsList
-          ref={recipeSection}
-          ingredients={ingredients}
-          getRecipe={getRecipe}
-        />
-      )}
+        {ingredients.length > 0 && (
+          <IngredientsList
+            reff={recipeSection}
+            ingredients={ingredients}
+            getRecipe={getRecipe}
+          />
+        )}
 
-      {recipe ? <ClaudeRecipe recipe={recipe} /> : waiting ? <Loader /> : null}
-    </main>
+        {recipe ? (
+          <ClaudeRecipe recipe={recipe} />
+        ) : waiting ? (
+          <Loader />
+        ) : null}
+      </main>
+    </>
   );
 }
