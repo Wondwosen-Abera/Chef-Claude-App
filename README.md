@@ -3,7 +3,7 @@
 
 ## Live Demo
 
-Check out the live site [here](https://chef-claude-recipe.netlify.app).
+Check out the live site [here](https://claudechef.netlify.app/).
 
 
 Chef-Claude-App is an intuitive recipe suggestion tool powered by AI. Users can provide a list of ingredients they have on hand, and the app will generate creative and detailed recipes based on those ingredients. The app leverages advanced AI models to deliver tailored cooking recommendations formatted in markdown for easy readability.
